@@ -1,0 +1,74 @@
+@import url('./fonts/JetBrainsMono.css');
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+  color: #2a2a2a;
+  background-color: #F0F8FF;
+}
+
+/* Layout */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+section {
+  margin-top: 20px;
+}
+
+footer {
+  margin-top: auto;
+  border-top: 1px solid #cccccc;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+/* Style */
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.4em;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: #0066CC;
+}
+
+a:visited {
+  color: #6633CC;
+}
+
+footer p {
+  color: #929292;
+  font-size: 0.8em;
+  padding: 0;
+  margin: 0;
+}
+
+.en-title:before {
+  content: " | ";
+  padding-left: 2px;
+}
+
+.en-title {
+  font-size: 0.9em;
+}
+
+.tt {
+  font-family: 'JetBrains Mono', sans-serif;
+}
+
+.tba {
+  font-size: 1.4em;
+  font-style: italic;
+  font-weight: 400;
+}
