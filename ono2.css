@@ -1,0 +1,20 @@
+/* P{color:blue} */
+/* H3{background-color:gray}  */
+BODY{background-color:white;margin-left:2em;margin-right:2em}
+A:link{color:#505050}
+A:visited{color:silver}
+A:active{color:red}
+PRE{color:blue}
+
+.texhtml {
+    font-style: italic; /* LaTeXのテキストをイタリックにする */
+    font-family: "Times New Roman", Times, serif; /* サンセリフ体のフォントを設定 */
+}
+
+.texhtml em {
+    font-style: normal; /* イタリックを解除 */
+}
+
+.texhtml strong {
+    font-weight: bold; /* 太字にする */
+}
