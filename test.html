@@ -1,0 +1,22 @@
+# リポジトリをクローン（既にクローン済みなら不要）
+git clone git@github.com:onolab/dma2026.git
+cd dma2026
+
+# ルートに test.html を作る（/docs を使っているなら docs/test.html）
+cat > test.html <<'HTML'
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+<body>
+  <h1>テストページ</h1>
+  <p>This is a test page for dma2026.</p>
+</body>
+</html>
+HTML
+
+git add test.html
+git commit -m "Add test.html (public test page)"
+git push origin main
