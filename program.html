@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
+<!--  <style>
     :root { --pico-font-family: "Noto Sans JP", system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji"; }
     header.hero { padding: 4rem 0 2rem; background: var(--pico-muted-border-color); border-bottom: 1px solid var(--pico-muted-border-color); }
     .card { border: 1px solid var(--pico-muted-border-color); border-radius: 12px; padding: 1rem; background: var(--pico-card-background-color); }
@@ -25,7 +25,52 @@
     .speaker { font-weight: 600; }
     .title { font-style: italic; }
     .backtop { position: sticky; bottom: 1rem; display: inline-block; }
-  </style>
+  </style> --> 
+  <style>
+  /* 既存の .pillnav を置き換え or 追加 */
+  .daynav {
+    position: sticky;
+    top: 0;           /* ヒーローの直下に固定 */
+    z-index: 50;
+    background: var(--pico-background-color);
+    border-bottom: 1px solid var(--pico-muted-border-color);
+    padding: .75rem 0;
+  }
+  .daynav .wrap {
+    display: flex;
+    gap: .6rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .daynav .btn {
+    display: inline-block;
+    padding: .6rem 1rem;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid var(--pico-muted-border-color);
+    font-weight: 700;
+    letter-spacing: .2px;
+    background: var(--pico-card-background-color);
+  }
+  /* 目立たせる：通常時も強め、アクティブ時はさらにコントラスト */
+  .daynav .btn:hover {
+    background: var(--pico-muted-border-color);
+  }
+  .daynav .btn.active {
+    background: var(--pico-primary);
+    border-color: var(--pico-primary);
+    color: white;
+  }
+
+  /* セクション見出しまでのスクロール停止位置を調整（stickyナビ分） */
+  section[id^="day"] {
+    scroll-margin-top: 5.5rem; /* ヘッダー余白とsticky高に合わせて調整 */
+  }
+
+  /* （任意）ページ最上部リンクの視認性強化 */
+  .backtop a { font-weight: 600; }
+</style>
+
 
   <!-- OGP -->
   <meta property="og:title" content="DMA2026 - Program">
