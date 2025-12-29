@@ -92,12 +92,23 @@
   <p><strong>March 16–18, 2026</strong> · Kunibiki Messe, Matsue, Japan</p>
 
   <!-- Day ナビ（上部ピル） -->
-  <nav class="pillnav" aria-label="Day navigation">
+<!--  <nav class="pillnav" aria-label="Day navigation">
     <a href="#day1">Mar 16 (Mon)</a>
     <a href="#day2">Mar 17 (Tue)</a>
     <a href="#day3">Mar 18 (Wed)</a>
+  </nav> --> 
+  <!-- 旧: <nav class="pillnav" ...> ～ を差し替え -->
+  <nav class="daynav" aria-label="Day navigation">
+    <div class="container wrap">
+      <a href="#day1" class="btn" data-day="day1">Mar 16 (Mon)</a>
+      <a href="#day2" class="btn" data-day="day2">Mar 17 (Tue)</a>
+      <a href="#day3" class="btn" data-day="day3">Mar 18 (Wed)</a>
+    </div>
   </nav>
 
+
+
+  
   <p>
     This is a tentative schedule. Sessions and times are subject to change.
   </p>
@@ -253,6 +264,45 @@
   <small id="last-update">Last update: -- </small>
 </footer>
 
+
+<script>
+  // 現在地ハイライト
+  (function () {
+    const buttons = Array.from(document.querySelectorAll('.daynav .btn'));
+    const sections = Array.from(document.querySelectorAll('section[id^="day"]'));
+    if (!buttons.length || !sections.length) return;
+
+    const byId = Object.fromEntries(buttons.map(b => [b.dataset.day, b]));
+
+    const io = new IntersectionObserver((entries) => {
+      // 最も見えている日を active に
+      let topMost = null;
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          if (!topMost || e.boundingClientRect.top < topMost.boundingClientRect.top) {
+            topMost = e;
+          }
+        }
+      });
+      if (topMost) {
+        const id = topMost.target.id;
+        buttons.forEach(b => b.classList.toggle('active', b.dataset.day === id));
+      }
+    }, {
+      rootMargin: '-20% 0px -60% 0px', // 上部20%で切替え
+      threshold: [0, 0.25, 0.5, 0.75, 1]
+    });
+
+    sections.forEach(sec => io.observe(sec));
+
+    // クリック時にも即時反映
+    buttons.forEach(b => {
+      b.addEventListener('click', () => {
+        buttons.forEach(x => x.classList.toggle('active', x === b));
+      });
+    });
+  })();
+</script>  
 <script>
   // 「Back to top」用
   (function () {
